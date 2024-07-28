@@ -1,0 +1,91 @@
+(ExpressProject ""
+  (ProjectVersion "19981106")
+  (SoftwareVersion "22.1 P001 (4063652)  [10/6/2022]-[07/25/24]")
+  (ProjectType "PCB")
+  (Folder "Design Resources"
+    (Folder "Library")
+    ("Allegro Netlist Directory" "allegro")
+    (File ".\768_omar_biadsy_menashe.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x")
+    (DOCKED "TRUE")
+    (DOCKING_POSITION "59420")
+    (NoModify)
+    (Netlist_TAB "0")
+    ("Create Allegro Netlist" "TRUE")
+    ("View Allegro Netlist Files" "FALSE")
+    ("Allegro Netlist Create DCF File" "FALSE")
+    ("Update Allegro Board" "FALSE")
+    ("Allegro Netlist Output Board File"
+       ".\allegro\768_omar_biadsy_menashe.brd")
+    ("Allegro Netlist Remove Etch" "FALSE")
+    ("Allegro Netlist Place Changed Component" "ALWAYS_REPLACE")
+    ("Allegro Netlist Open Board in Allegro" "ALLEGRO")
+    ("Allegro Setup Backup Versions" "3")
+    ("Allegro Setup Ignore Constraints" "FALSE")
+    ("Allegro Setup Part Type Length" "255")
+    ("Allegro Netlist Combine Property String" "PCB Footprint")
+    ("Allegro Netlist Ignore Fixed Property" "FALSE")
+    ("Allegro Netlist User Defined Property" "FALSE")
+    (BOM_Scope "0")
+    (BOM_Mode "0")
+    (BOM_Report_File "P:\PROJECT A\768_OMAR_BIADSY_MENASHE.BOM")
+    (BOM_Merge_Include "FALSE")
+    (BOM_Property_Combine_7.0 "{Item}\t{Quantity}\t{Reference}\t{Value}")
+    (BOM_Header "Item\tQuantity\tReference\tPart")
+    (BOM_Include_File "P:\PROJECT A\768_OMAR_BIADSY_MENASHE.INC")
+    (BOM_Include_File_Combine_7.0 "{Item}\t{Quantity}\t{Reference}\t{Value}")
+    (BOM_One_Part_Per_Line "FALSE")
+    (Open_BOM_in_Excel "TRUE")
+    (BOM_View_Output "FALSE"))
+  (Folder "Layout")
+  (Folder "Outputs"
+    (File ".\allegro\pstxnet.dat"
+      (Type "Report")
+      (DisplayName "pstxnet.dat"))
+    (File ".\allegro\pstxprt.dat"
+      (Type "Report")
+      (DisplayName "pstxprt.dat"))
+    (File ".\allegro\pstchip.dat"
+      (Type "Report")
+      (DisplayName "pstchip.dat"))
+    (File ".\768_omar_biadsy_menashe.bom"
+      (Type "Report")))
+  (Folder "Referenced Projects")
+  (Folder "PSpice Resources"
+    (Folder "Simulation Profiles")
+    (Folder "Model Libraries"
+      (Sort User))
+    (Folder "Stimulus Files"
+      (Sort User))
+    (Folder "Include Files"
+      (Sort User)))
+  (Folder "Logs")
+  (PartMRUSelector)
+  (MPSSessionName "biadsy")
+  (ISPCBBASICLICENSE "false")
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources" ".\768_omar_biadsy_menashe.dsn")
+      (Path "Design Resources" ".\768_omar_biadsy_menashe.dsn" "ROOT")
+      (Path "Design Resources" ".\768_omar_biadsy_menashe.dsn" "dc_to_dc_3.3V")
+      (Path "Design Resources" ".\768_omar_biadsy_menashe.dsn"
+         "dc_to_dc_boost_5V")
+      (Path "Design Resources" ".\768_omar_biadsy_menashe.dsn" "esp32")
+      (Path "Design Resources" ".\768_omar_biadsy_menashe.dsn" "PMU")
+      (Path "Design Resources" ".\768_omar_biadsy_menashe.dsn"
+         "real_time_clock")
+      (Path "Design Resources" ".\768_omar_biadsy_menashe.dsn" "sd_card")
+      (Path "Design Resources" ".\768_omar_biadsy_menashe.dsn" "switchs")
+      (Path "Design Resources" ".\768_omar_biadsy_menashe.dsn" "usb_charger")
+      (Path "Outputs")
+      (Select "Design Resources" ".\768_omar_biadsy_menashe.dsn" "esp32"
+         "esp32"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -1 -1 0 200 0 574"))
+      (Tab 0))))
