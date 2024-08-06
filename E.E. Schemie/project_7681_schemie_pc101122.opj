@@ -1,0 +1,50 @@
+(ExpressProject ""
+  (ProjectVersion "19981106")
+  (SoftwareVersion "22.1 P001 (4063652)  [10/6/2022]-[08/06/24]")
+  (ProjectType "PCB")
+  (Folder "Design Resources"
+    (Folder "Library")
+    ("Allegro Netlist Directory" "allegro")
+    (File ".\project_7681_schemie_pc101122.dsn"
+      (Type "Schematic Design")
+      (DisplayName ".\project_7681_schemie_pc101122.DSN"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x")
+    (DOCKED "TRUE")
+    (DOCKING_POSITION "59420")
+    (NoModify))
+  (Folder "Layout")
+  (Folder "Outputs")
+  (Folder "Referenced Projects")
+  (Folder "PSpice Resources"
+    (Folder "Simulation Profiles")
+    (Folder "Model Libraries"
+      (Sort User))
+    (Folder "Stimulus Files"
+      (Sort User))
+    (Folder "Include Files"
+      (Sort User)))
+  (Folder "Logs")
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources" ".\project_7681_schemie_pc101122.dsn")
+      (Path "Design Resources" ".\project_7681_schemie_pc101122.dsn" "ROOT")
+      (Path "Design Resources" ".\project_7681_schemie_pc101122.dsn"
+         "dc_to_dc_3.3V")
+      (Path "Design Resources" ".\project_7681_schemie_pc101122.dsn"
+         "dc_to_dc_boost_5V")
+      (Path "Design Resources" ".\project_7681_schemie_pc101122.dsn" "esp32")
+      (Path "Design Resources" ".\project_7681_schemie_pc101122.dsn" "PMU")
+      (Path "Design Resources" ".\project_7681_schemie_pc101122.dsn"
+         "real_time_clock")
+      (Path "Design Resources" ".\project_7681_schemie_pc101122.dsn" "sd_card")
+      (Path "Design Resources" ".\project_7681_schemie_pc101122.dsn" "switchs")
+      (Path "Design Resources" ".\project_7681_schemie_pc101122.dsn"
+         "usb_charger"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -1 -1 0 200 0 456"))
+      (Tab 0))))
