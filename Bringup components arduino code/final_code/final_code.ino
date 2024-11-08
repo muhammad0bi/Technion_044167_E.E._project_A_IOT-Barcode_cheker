@@ -7,15 +7,15 @@
 #include <SD.h>
 
 // Define the pins of the screen for the ESP32
-#define TFT_CS  32
-#define TFT_RESET  4
-#define TFT_DC  19
-#define TFT_MOSI  23
-#define TFT_CLK  13
-#define TFT_SCREEN_ON_OFF  33
+#define SCREEN_CS  32
+#define SCREEN_RESET  4
+#define SCREEN_DC  5
+#define SCREEN_MOSI  23
+#define SCREEN_CLK  18
+#define SCREEN_SCREEN_ON_OFF  33
 
 // Create an instance of the ILI9341 display
-Adafruit_ILI9341 screen = Adafruit_ILI9341(TFT_CS, TFT_DC, TFT_RESET);
+Adafruit_ILI9341 screen = Adafruit_ILI9341(SCREEN_CS, SCREEN_DC, SCREEN_RESET);
 
 // Define the pins of switchs for the ESP32
 #define ESP_GOLDEN_SWITCH  36
@@ -33,11 +33,9 @@ HardwareSerial barcode(1);
 // Define the pins of real time clock (RTC) for the ESP32
 #define RTC_SDA  27
 #define RTC_SCL  14
-#define RTC_CLK_INT  12
 
 // Create an instance of the RTC
 RTC_DS3231 RTC;
-
 
 // Define the pins of SD card for the ESP32
 // #define SD_DO  7
@@ -45,35 +43,124 @@ RTC_DS3231 RTC;
 // #define SD_DI  8
 // #define SD_CS  11
 
-const int SD_CS = 11;
-
 // Setup function
-void setup() {
+void setup() 
+{
   // Initialize serial communication for debugging
   Serial.begin(115200);
   Serial.println("Initializing...");
 
-  //Initialize the RTC pins
-  Wire.begin(RTC_SDA, RTC_SCL); // SDA 27 , SCL 14
-  pinMode(RTC_CLK_INT, INPUT); // CLK_INT 12
-
   // Initialize the display
+  pinMode(SCREEN_SCREEN_ON_OFF, OUTPUT);
+  digitalWrite(SCREEN_SCREEN_ON_OFF,HIGH); // turn the screen on (open the gate in mosfet)
   screen.begin();
+  screen.setRotation(3); // Adjust rotation as needed for your display orientation
+  screen.fillScreen(ILI9341_WHITE);  // Fill the screen with a color
+  screen.setCursor(10, 100);
+  screen.setTextColor(ILI9341_BLACK);
+  screen.setTextSize(4);
+  screen.print("Welcome...");
 
-  // Initialize serial communication with the GM810 barcode scanner through TTL-232
-  // Ensure the baud rate matches the GM810 scanner's setting
+  // Initialize the pins of switchs
+  pinMode(ESP_GOLDEN_SWITCH, INPUT);
+  pinMode(ESP_OPTIONAL_SWITCH, INPUT);
+  pinMode(ESP_WORK_SWITCH, INPUT);
+  
+  // Initialize serial communication with the GM810 barcode scanner
+  pinMode(BARCODE_ON_OFF, OUTPUT);
+  digitalWrite(BARCODE_ON_OFF,HIGH); // turn the barcode on (enable the dc to dc 5V)
   barcode.begin(9600, SERIAL_8N1, ESP_RX_BARCODE_TX, ESP_TX_BARCODE_RX); // RX pin 16, TX pin 17
 
-  // Initialize the SD card
-  if (!SD.begin(SD_CS)) 
+  // Initialize RTC 
+  Wire.begin(RTC_SDA, RTC_SCL); // SDA, SCL for ESP32
+  if (!RTC.begin()) 
   {
-    Serial.println("SD Initialization failed!");
-    return;
+    Serial.println("Couldn't find RTC");
+    while (1); // If RTC is not found, stop the program
   }
-
+  //RTC.adjust(DateTime(2024, 11, 5, 16, 09, 00)); // Set the date to 2024-11-05 12:30:00
+  delay(3000);
+  screen.println("Press to start");
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
+// Function to read barcode data
+String readBarcode() 
+{
+  String barcodeData = "";
+  unsigned long startMillis = millis(); // Start the timer
+  while (millis() - startMillis < 10000) // Timeout after 10 seconds
+  {
+    if (barcode.available()) 
+    {
+      // Read the incoming data
+      while (barcode.available()) 
+      {
+        char c = barcode.read();
+        barcodeData += c;
+        delay(20);
+      }
+      break;
+    }
+  }
+  return barcodeData;
+}
+
+void loop() 
+{
+  if (digitalRead(ESP_GOLDEN_SWITCH) == HIGH)
+  {
+    screen.fillScreen(ILI9341_WHITE);
+    screen.setTextColor(ILI9341_BLACK);
+    screen.print("Scan your golden Barcode");
+
+    // Read the golden barcode
+    String golden_barcode = readBarcode();
+    if (golden_barcode == "")
+    {
+      screen.fillScreen(ILI9341_WHITE);  // Clear the screen
+      screen.setTextColor(ILI9341_RED);
+      screen.print("Timeout: No barcode read");
+      return;
+    }
+    screen.fillScreen(ILI9341_BLACK);  // Clear the screen
+    screen.print("Your golden Barcode: ");
+    screen.println(golden_barcode);
+
+    screen.setCursor(10, 120);
+    screen.print("Scan your target Barcode");
+
+    // Read the target barcode 
+    String target_barcode = readBarcode();
+    if (target_barcode == "")
+    {
+      screen.fillScreen(ILI9341_WHITE);  // Clear the screen
+      screen.setTextColor(ILI9341_RED);
+      screen.print("Timeout: No barcode read");
+      return;
+    }
+    screen.fillScreen(ILI9341_BLACK);  // Clear the screen
+    screen.print("Your target Barcode: ");
+    screen.println(target_barcode);
+
+    // Compare the barcodes and display results
+    if (golden_barcode == target_barcode)
+    {
+      screen.fillScreen(ILI9341_GREEN);  // Fill the screen with a color
+      screen.print("Identical Barcodes");
+    }
+    else 
+    {
+      screen.fillScreen(ILI9341_RED);  // Fill the screen with a color
+      screen.print("Different Barcodes");
+    }
+  }
+  if (digitalRead(ESP_OPTIONAL_SWITCH) == HIGH)
+  {
+    //Serial.println("optional_switch pressed");
+  }
+  if (digitalRead(ESP_WORK_SWITCH) == HIGH)
+  {
+    //Serial.println("work_switch pressed");
+  }
 
 }
