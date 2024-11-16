@@ -1,0 +1,73 @@
+(ExpressProject ""
+  (ProjectVersion "19981106")
+  (SoftwareVersion "22.1 P001 (4063652)  [10/6/2022]-[08/25/24]")
+  (ProjectType "PCB")
+  (Folder "Design Resources"
+    (Folder "Library")
+    ("Allegro Netlist Directory" "allegro")
+    (File ".\768_iot_bar-code_pc0101122a.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x")
+    (DOCKED "TRUE")
+    (DOCKING_POSITION "59420")
+    (NoModify))
+  (Folder "Layout")
+  (Folder "Outputs")
+  (Folder "Referenced Projects")
+  (Folder "PSpice Resources"
+    (Folder "Simulation Profiles")
+    (Folder "Model Libraries"
+      (Sort User))
+    (Folder "Stimulus Files"
+      (Sort User))
+    (Folder "Include Files"
+      (Sort User)))
+  (Folder "Logs")
+  (PartMRUSelector)
+  (MPSSessionName "omar.sharafy")
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources" ".\768_iot_bar-code_pc0101122a.dsn")
+      (Path "Design Resources" ".\768_iot_bar-code_pc0101122a.dsn"
+         "dc_to_dc_3.3V")
+      (Path "Design Resources" ".\768_iot_bar-code_pc0101122a.dsn"
+         "dc_to_dc_boost_5V")
+      (Path "Design Resources" ".\768_iot_bar-code_pc0101122a.dsn" "esp32")
+      (Path "Design Resources" ".\768_iot_bar-code_pc0101122a.dsn" "PMU")
+      (Path "Design Resources" ".\768_iot_bar-code_pc0101122a.dsn"
+         "real_time_clock")
+      (Path "Design Resources" ".\768_iot_bar-code_pc0101122a.dsn" "sd_card")
+      (Path "Design Resources" ".\768_iot_bar-code_pc0101122a.dsn" "switchs")
+      (Path "Design Resources" ".\768_iot_bar-code_pc0101122a.dsn"
+         "usb_charger")
+      (Select "Design Resources" ".\768_iot_bar-code_pc0101122a.dsn" "ROOT"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -1 -1 0 200 0 654"))
+      (Tab 0))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -1 -1 5 1493 24 672")
+        (Scroll "475 538")
+        (Zoom "200")
+        (Occurrence "/"))
+      (Path
+         "C:\USERS\OMAR.SHARAFY\DESKTOP\2508\768_IOT_BAR-CODE_PC0101122A.DSN")
+      (Schematic "ROOT")
+      (Page "TOP"))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -1 -1 5 1493 24 672")
+        (Scroll "91 12")
+        (Zoom "168")
+        (Occurrence "/esp32"))
+      (Path
+         "C:\USERS\OMAR.SHARAFY\DESKTOP\2508\768_IOT_BAR-CODE_PC0101122A.DSN")
+      (Schematic "esp32")
+      (Page "esp32"))))
